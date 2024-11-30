@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: system-ui;
+            background: linear-gradient(169deg, rgba(226,0,255,0.9864320728291317) 18%, rgba(94,13,245,1) 59%); /* Default background color before click */
+            color: black; /* Default text color before click */
+            background-size: 100% ;
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Prevents any scrolling */
+            transition: background-image 1s ease-in-out, color 1s ease-in-out; /* Smooth transition for background and text color */
+        }
+
+        h1 {
+            font-size: 6rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0);
+        }
+
+        p {
+            font-size: 1.9rem;
+            color: rgb(0, 0, 0);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
+        }
+
+        /* Full-screen button */
+        button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0); /* Semi-transparent */
+            overflow: hidden;
+            font-size: 2rem;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 1; /* Makes sure the button is on top */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Audio element without autoplay -->
+    <audio id="audio" src="https://www.myinstants.com/media/sounds/five-nights-at-freddys-full-scream-sound_3.mp3" hidden></audio>
+
+    <div>
+        <h1>👋 Hi!! You look lost. </h1>
+        <p>Sorry, you have been watching stupid stuff <br> No more. <br> just click <u>anywhere</u> </p>
+    </div>
+
+    <!-- Full-screen transparent button -->
+    <button onclick="playAudioAndChangeBackground()"></button>
+
+    <script>
+        function playAudioAndChangeBackground() {
+            var audio = document.getElementById('audio');
+            var body = document.body;
+            var h1 = document.querySelector('h1');
+            var p = document.querySelector('p');
+            
+            // Play the audio
+            audio.play(); 
+
+            // Change the background image after the button is clicked
+            body.style.backgroundImage = "url('https://c.tenor.com/Rmy4NLmb5oEAAAAC/tenor.gif')";
+            body.style.backgroundSize = "100% 97%";
+
+            // Change the text color to white after clicking
+            h1.style.display = "none";  // Change color of <h1> to white
+            p.style.display = "none";   // Change color of <p> to white
+        }
+    </script>
+</body>
+</html>
